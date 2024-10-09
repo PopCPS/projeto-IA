@@ -5,6 +5,7 @@ export const Graficos = () => {
       <div className="flex flex-col justify-center gap-4  ">
         <h2 className="text-5xl text-center">Histogramas</h2>
         <div className="flex flex-wrap justify-center">
+          <img src="/hist-attended.png" alt="" />
           <img src="/hist-days-before-class.png" alt="" />
           <img src="/hist-weight.png" alt="" />
           <img src="/hist-month-as-member.png" alt="" />
