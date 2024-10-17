@@ -16,7 +16,7 @@ export const Graficos = () => {
           </div>
           <div className="flex flex-col items-center max-w-[500px]">
             <img className="size-[500px]" src="/hist-weight.png" alt="" />
-            <p className="text-2xl text-center">Podemos ver que a maioria dos alunos que se inscrevem em aulas estão numa média de peso por volta de 100-120 quilos.</p>
+            <p className="text-2xl text-center">Podemos ver que a maioria dos alunos que se inscrevem em aulas estão numa média de peso por volta de 80-90 quilos.</p>
           </div>
           <div className="flex flex-col items-center max-w-[500px]">
             <img className="size-[500px]" src="/hist-month-as-member.png" alt="" />
