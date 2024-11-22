@@ -5,9 +5,9 @@ import './index.css'
 function App() {
 
   return (
-    <div className='relative'>
+    <div className='flex flex-col gap-10 relative bg-black min-h-screen text-white'>
       <Header />
-      <Graficos />
+      <Graficos />  
     </div>
   )
 }

@@ -1,62 +1,112 @@
+import { useState } from "react"
+
 export const Graficos = () => {
+
+  const [ isBalanced, setIsBalanced ] = useState<boolean>(false)
+
+  const handleBalance = () => {
+    setIsBalanced(!isBalanced)
+  }
+
   return (
-    <section className="flex flex-col px-4 gap-16 items-center">
+    <section className="flex flex-col px-4 gap-10 items-center">
 
-      <div className="flex items-center">
-        <p className="w-[500px] text-2xl">GoalZone é uma rede de academias canadense que administra aulas de yoga, ciclismo, HIIT, entre outras. Porém estas aulas que tem capacidade de 18 a 25 alunos estão com uma média de presença de 30%. O objetivo é prever se um aluno que reservou uma vaga na aula vai ou não comparecer para disponibilizar mais vagas.</p>
-        <img className="size-[500px]" src="/pie-attended.png" alt="" />
-      </div>  
+      <button 
+        className="w-3/5 p-2 rounded-md text-xl font-semibold text-black bg-cyan"
+        onClick={handleBalance}>
+        {isBalanced ? 'Unbalance Graphs' : 'Balance Graphs'}
+      </button>
 
-      <div className="flex flex-col justify-center gap-4">
-        <h2 className="text-5xl text-center">Histogramas</h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img className="size-[500px]" src="/hist-days-before-class.png" alt="" />
-            <p className="text-2xl text-center">Aqui vemos que não há um padrão nas reservas para as aulas.</p>
-          </div>
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img className="size-[500px]" src="/hist-weight.png" alt="" />
-            <p className="text-2xl text-center">Podemos ver que a maioria dos alunos que se inscrevem em aulas estão numa média de peso por volta de 80-90 quilos.</p>
-          </div>
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img className="size-[500px]" src="/hist-month-as-member.png" alt="" />
-            <p className="text-2xl text-center">A grande maioria dos alunos estão matriculados na academia entre 1 e 1.5 ano.</p>
-          </div>
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img className="size-[500px]" src="/hist-day-of-class_attended.png" alt="" />
-            <p className="text-2xl text-center">Vemos que o sexta feira tem mais aulas ou mais incritos em aulas mas quarta feira é o dia que tem maior porcentagem de faltas.</p>
-          </div>
+      
+      <div className="flex flex-col items-center gap-10">
+
+        <h2>Data frame balance</h2>
+        <div>
+          {isBalanced ? (
+            <img src="public/pie-attended-balanced.png" alt="" />            
+            ) : (
+            <img src="public/pie-attended.png" alt="" />
+          )}
         </div>
-      </div>
 
-      <div className="flex flex-col justify-center gap-4">
-        <h2 className="text-5xl text-center">Boxplot</h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img className="size-[500px]" src="/box-days-before-class.png" alt="" />
-            <p className="text-2xl text-center">Vemos que não tem muita diferença baseada no dia que o aluno se inscreve na aula e a taxa de presença.</p>
-          </div>
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img className="size-[500px]" src="/box-weight.png" alt="" />
-            <p className="text-2xl text-center">É perceptivel que ocorrem muito mais faltas quando os alunos tem pesos acima da média.</p>
-          </div>
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img className="size-[500px]" src="/box-months-as-member.png" alt="" />
-            <p className="text-2xl text-center">É visivel que os alunos que mais atendem as aulas são o que estão matriculados na academia por um tempo acima da média.</p>
-          </div>
-        </div>
-      </div>
+        <h2 className="text-2xl font-semibold">Histograms</h2>
+        <div className="flex flex-col gap-8">
 
-      <div className="flex flex-col justify-center gap-4  ">
-        <h2 className="text-5xl text-center">Heatmap</h2>
-        <div className="flex flex-wrap justify-center">
-          <div className="flex flex-col items-center max-w-[500px]">
-            <img src="/heatmap.png" alt="" />
-            <p className="text-2xl text-center">Este HeatMap concretiza a relação de presença com peso e tempo de matriculado na academia, onde os matriculados a mais tempo tem maior taxa de presença e os com peso acima da média tem menor taxa de presença.</p>
+          <div className="space-y-4">
+            {isBalanced ? (
+              <img src="public/hist-weight-balanced.png" alt="" />
+            ) : (
+              <img src="public/hist-weight.png" alt="" />
+            )}
+            <p className="px-8 text-justify">
+              We can see that the majority of students who sign up for classes have an average weight of around 80-90 kilos.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {isBalanced ? (
+              <img src="public/hist-days-before-class-balanced.png" alt="" />
+            ) : (
+              <img src="public/hist-days-before-class.png" alt="" />
+            )}
+            <p className="px-8 text-justify">
+              Here we see that there is no standard in class reservations.
+            </p>
           </div>
           
+          <div className="space-y-4">
+            {isBalanced ? (
+              <img src="public/hist-month-as-member-balanced.png" alt="" />
+            ) : (
+              <img src="public/hist-month-as-member.png" alt="" />
+            )}
+            <p className="px-8 text-justify">
+            The vast majority of students have been enrolled at the academy for between 1 and 1.5 years.
+            </p>
+          </div>
+
         </div>
+
+        <h2 className="text-2xl font-semibold">Boxplots</h2>
+        <div className="flex flex-col gap-8">
+
+          <div className="space-y-4">
+            {isBalanced ? (
+              <img src="public/hist-weight-balanced.png" alt="" />
+            ) : (
+              <img src="public/hist-weight.png" alt="" />
+            )}
+            <p className="px-8 text-justify">
+              We can see that the majority of students who sign up for classes have an average weight of around 80-90 kilos.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {isBalanced ? (
+              <img src="public/hist-days-before-class-balanced.png" alt="" />
+            ) : (
+              <img src="public/hist-days-before-class.png" alt="" />
+            )}
+            <p className="px-8 text-justify">
+              Here we see that there is no standard in class reservations.
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            {isBalanced ? (
+              <img src="public/hist-month-as-member-balanced.png" alt="" />
+            ) : (
+              <img src="public/hist-month-as-member.png" alt="" />
+            )}
+            <p className="px-8 text-justify">
+            The vast majority of students have been enrolled at the academy for between 1 and 1.5 years.
+            </p>
+          </div>
+
+        </div>
+        
       </div>
+      
     </section>
   )
 } 
