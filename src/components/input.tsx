@@ -1,22 +1,27 @@
-import { ReactNode } from "react"
+import { ComponentProps, ReactNode } from "react"
 
-interface inputProps {
+interface BaseProps{
   children?: ReactNode,
   inputType?: string
-  type: 'input' | 'select'
+  selectedType: 'input' | 'select'
   id: string
   name: string
 }
 
+type InputProps = BaseProps & ComponentProps<'input'>;
+type SelectProps = BaseProps & ComponentProps<'select'>;
+
+
 export const Input = ({
   children,
   inputType,
-  type,
+  selectedType,
   id,
-  name
-}: inputProps) => {
+  name,
+  ...props
+}: InputProps | SelectProps) => {
 
-  if (type === 'input' && !type) {
+  if (selectedType === 'input' && !selectedType) {
     inputType = 'text'
   }
 
@@ -26,16 +31,18 @@ export const Input = ({
         className="flex flex-col gap-3 flex-1 w-full max-w-96 lg:min-w-96" 
         htmlFor={id}
       >{name}
-        {type === 'input' && (
+        {selectedType === 'input' && (
           <input 
             className="p-2 rounded-md w-full text-black"  
-            id={id}
+            {...(props as InputProps)}
             type={inputType} 
+            id={id}
           />
         )}
-        {type === 'select' && (
+        {selectedType === 'select' && (
           <select 
             className="p-2 rounded-md w-full text-black"  
+            {...(props as SelectProps)}
             id={id} 
           >
             {children}
