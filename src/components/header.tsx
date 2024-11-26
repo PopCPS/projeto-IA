@@ -9,7 +9,7 @@ export const Header = () => {
     <header 
       id="header" 
       className="bg-cover bg-right"
-      style={{ backgroundImage: 'url("public/bike-background.png")' }}
+      style={{ backgroundImage: 'url("/bike-background.png")' }}
     >
       <div className="flex items-center justify-between p-8">
         <img 
