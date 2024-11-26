@@ -108,7 +108,7 @@ export const Graficos = () => {
         <h2 className="text-2xl font-semibold">Heatmap</h2>
         <div className="flex flex-col gap-8 items-center w-full">
           <div className="flex flex-col gap-4 items-center lg:w-2/5">
-            <img src="//heatmap.png" alt="" />
+            <img src="/heatmap.png" alt="" />
             <p className="px-8 text-justify">
               This HeatMap demonstrates the relationship between attendance and weight and length of time enrolled at the gym, where those enrolled for a longer period of time have a higher attendance rate and those weighing above average have a lower attendance rate.
             </p>
