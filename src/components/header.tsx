@@ -37,7 +37,10 @@ export const Header = () => {
                 <a href="/">Home</a>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-                <a href="/analise">Análise</a>
+                <a href="/analise">Analysis</a>
+              </li>
+              <li className="border-b border-gray-400 my-8 uppercase">
+                <a href="https://www.kaggle.com/datasets/ddosad/datacamps-data-science-associate-certification" target="_blank">Data Frame</a>
               </li>
             </ul>
           </div>
@@ -48,7 +51,10 @@ export const Header = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/analise">Análise</a>
+            <a href="/analise">Analysis</a>
+          </li>
+          <li>
+            <a href="https://www.kaggle.com/datasets/ddosad/datacamps-data-science-associate-certification" target="_blank">Data Frame</a>
           </li>
         </ul>
       </nav>
